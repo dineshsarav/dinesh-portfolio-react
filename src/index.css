@@ -1,0 +1,258 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  body {
+    background-color: #080d1a;
+    color: #f8fafc;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    touch-action: manipulation;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* ReactBits Cyber Grid Waves Canvas Background */
+#reactbits-grid-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Ambient Auroras matching Cyber Violet palette */
+.ambient-aurora-top {
+  position: fixed;
+  top: -120px;
+  left: 30%;
+  transform: translateX(-50%);
+  width: min(800px, 100vw);
+  height: 500px;
+  background: radial-gradient(ellipse at center, rgba(129, 140, 248, 0.2) 0%, rgba(168, 85, 247, 0.12) 55%, transparent 70%);
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ambient-aurora-bottom {
+  position: fixed;
+  bottom: -100px;
+  right: 15%;
+  width: min(700px, 100vw);
+  height: 450px;
+  background: radial-gradient(ellipse at center, rgba(6, 182, 212, 0.15) 0%, rgba(99, 102, 241, 0.12) 50%, transparent 70%);
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ReactBits MaskedHeading Component Styling */
+.reactbits-masked-heading {
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(120deg, #818cf8 0%, #c084fc 30%, #38bdf8 65%, #a855f7 100%);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: maskedFlow 7s ease infinite alternate;
+  filter: drop-shadow(0 4px 20px rgba(129, 140, 248, 0.35));
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.reactbits-masked-heading:hover {
+  transform: scale(1.03) translateY(-3px);
+  filter: drop-shadow(0 8px 30px rgba(168, 85, 247, 0.6));
+}
+
+.reactbits-masked-heading-bg {
+  position: relative;
+  background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255,255,255,0.95), rgba(129, 140, 248, 0.85) 40%, rgba(6, 182, 212, 0.75) 80%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Glassmorphism Cards with Specialty Hover Glow */
+.b-card {
+  background-color: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.b-card:hover {
+  border-color: rgba(129, 140, 248, 0.55);
+  background-color: rgba(15, 23, 42, 0.95);
+  box-shadow: 0 15px 35px -10px rgba(99, 102, 241, 0.35), 0 0 20px rgba(129, 140, 248, 0.15);
+}
+
+/* ReactBits 3D Tilt Card Effect */
+.tilt-card {
+  transform-style: preserve-3d;
+  transition: transform 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+  will-change: transform;
+}
+
+/* Spotlight Glow */
+.spotlight-card {
+  position: relative;
+  overflow: hidden;
+}
+.spotlight-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: radial-gradient(500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(129, 140, 248, 0.25), transparent 40%);
+  border-radius: inherit;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.spotlight-card:hover::before {
+  opacity: 1;
+}
+
+/* Shimmer Light Sweep Effect on Buttons */
+.shimmer-btn {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer-btn::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.25) 50%,
+    transparent 70%
+  );
+  transform: rotate(30deg) translateX(-100%);
+  transition: transform 0.6s ease;
+}
+.shimmer-btn:hover::after {
+  transform: rotate(30deg) translateX(100%);
+}
+
+/* ReactBits Magnetic Hover Effect */
+.magnetic-btn {
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.magnetic-btn:hover {
+  box-shadow: 0 10px 25px -5px rgba(129, 140, 248, 0.4);
+}
+
+/* Tech Stack Logo Badges Specialty Hover */
+.tech-icon-wrapper {
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.tech-icon-wrapper:hover {
+  transform: translateY(-6px) scale(1.08);
+  border-color: rgba(168, 85, 247, 0.6);
+  box-shadow: 0 10px 25px -5px rgba(168, 85, 247, 0.4), 0 0 15px rgba(129, 140, 248, 0.3);
+}
+.tech-icon-wrapper img {
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+.tech-icon-wrapper:hover img {
+  transform: scale(1.15) rotate(4deg);
+  filter: invert(1) drop-shadow(0 0 8px rgba(129, 140, 248, 0.8));
+}
+
+/* ReactBits DecryptedText Styles */
+.decrypted-char-revealed {
+  background: linear-gradient(120deg, #818cf8 0%, #c084fc 35%, #38bdf8 70%, #a855f7 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 14px rgba(129, 140, 248, 0.8);
+  transition: all 0.1s ease;
+}
+.decrypted-char-glitch {
+  color: #06b6d4;
+  opacity: 0.85;
+  text-shadow: 0 0 8px rgba(6, 182, 212, 0.8);
+  font-family: 'Fira Code', monospace;
+}
+
+/* Hero Portrait Background Scroll Zoom Expansion */
+.hero-bg-zoom-media {
+  transform: scale(var(--scroll-bg-zoom, 1));
+  transition: transform 0.1s cubic-bezier(0.1, 0, 0.1, 1);
+}
+
+/* Navigation Links Underline Sweep Animation */
+.nav-link-sweep {
+  position: relative;
+}
+.nav-link-sweep::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #818cf8, #a855f7);
+  transition: all 0.25s ease;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+.nav-link-sweep:hover::after {
+  width: 80%;
+}
+
+@keyframes maskedFlow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+
+@keyframes borderBeam {
+  0% { border-color: rgba(129, 140, 248, 0.6); box-shadow: 0 0 15px rgba(129, 140, 248, 0.4); }
+  50% { border-color: rgba(168, 85, 247, 0.85); box-shadow: 0 0 25px rgba(168, 85, 247, 0.65); }
+  100% { border-color: rgba(129, 140, 248, 0.6); box-shadow: 0 0 15px rgba(129, 140, 248, 0.4); }
+}
+
+.animate-border-beam {
+  animation: borderBeam 4s linear infinite;
+}
+
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 12px);
+}
+
+/* Scrollbar Customization */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #080d1a;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #818cf8;
+}

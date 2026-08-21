@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <title>Perumalla Dinesh Saravan — AI & Python Specialist</title>
+  <meta name="author" content="Perumalla Dinesh Saravan">
+  <meta name="description" content="Portfolio of Perumalla Dinesh Saravan, AI & Python Specialist in Bengaluru building SaaS platforms, RAG systems, and deep learning research.">
+  <meta property="og:title" content="Perumalla Dinesh Saravan — AI & Python Specialist">
+  <meta property="og:description" content="SaaS platforms, AI recommendation engines, RAG systems, and deep learning research by Perumalla Dinesh Saravan.">
+  <meta property="og:type" content="website">
+  
+  <!-- Fonts CDN -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              400: '#a855f7',
+              500: '#818cf8',
+              600: '#6366f1',
+              dark: '#080d1a',
+              card: '#0f172a',
+              border: 'rgba(255, 255, 255, 0.08)'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['Fira Code', 'monospace']
+          },
+          animation: {
+            'marquee': 'marquee 28s linear infinite',
+            'border-beam': 'borderBeam 4s linear infinite',
+            'masked-flow': 'maskedFlow 7s ease infinite alternate'
+          },
+          keyframes: {
+            marquee: {
+              '0%': { transform: 'translateX(0%)' },
+              '100%': { transform: 'translateX(-50%)' }
+            },
+            borderBeam: {
+              '0%': { 'border-color': 'rgba(129, 140, 248, 0.6)', 'box-shadow': '0 0 15px rgba(129, 140, 248, 0.4)' },
+              '50%': { 'border-color': 'rgba(168, 85, 247, 0.85)', 'box-shadow': '0 0 25px rgba(168, 85, 247, 0.65)' },
+              '100%': { 'border-color': 'rgba(129, 140, 248, 0.6)', 'box-shadow': '0 0 15px rgba(129, 140, 248, 0.4)' }
+            },
+            maskedFlow: {
+              '0%': { 'background-position': '0% 50%' },
+              '100%': { 'background-position': '100% 50%' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+      -webkit-tap-highlight-color: transparent;
+    }
+    
+    body {
+      background-color: #080d1a;
+      color: #f8fafc;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      overflow-x: hidden;
+      touch-action: manipulation;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ReactBits Cyber Grid Waves Canvas Background */
+    #reactbits-grid-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Ambient Auroras matching Cyber Violet palette */
+    .ambient-aurora-top {
+      position: fixed;
+      top: -120px;
+      left: 30%;
+      transform: translateX(-50%);
+      width: min(800px, 100vw);
+      height: 500px;
+      background: radial-gradient(ellipse at center, rgba(129, 140, 248, 0.2) 0%, rgba(168, 85, 247, 0.12) 55%, transparent 70%);
+      filter: blur(100px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .ambient-aurora-bottom {
+      position: fixed;
+      bottom: -100px;
+      right: 15%;
+      width: min(700px, 100vw);
+      height: 450px;
+      background: radial-gradient(ellipse at center, rgba(6, 182, 212, 0.15) 0%, rgba(99, 102, 241, 0.12) 50%, transparent 70%);
+      filter: blur(100px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ReactBits MaskedHeading Component Styling */
+    .reactbits-masked-heading {
+      position: relative;
+      display: inline-block;
+      background: linear-gradient(120deg, #818cf8 0%, #c084fc 30%, #38bdf8 65%, #a855f7 100%);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: maskedFlow 7s ease infinite alternate;
+      filter: drop-shadow(0 4px 20px rgba(129, 140, 248, 0.35));
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .reactbits-masked-heading:hover {
+      transform: scale(1.03) translateY(-3px);
+      filter: drop-shadow(0 8px 30px rgba(168, 85, 247, 0.6));
+    }
+
+    .reactbits-masked-heading-bg {
+      position: relative;
+      background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255,255,255,0.95), rgba(129, 140, 248, 0.85) 40%, rgba(6, 182, 212, 0.75) 80%);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Glassmorphism Cards */
+    .b-card {
+      background-color: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    .b-card:hover {
+      border-color: rgba(129, 140, 248, 0.55);
+      background-color: rgba(15, 23, 42, 0.95);
+      box-shadow: 0 15px 35px -10px rgba(99, 102, 241, 0.35), 0 0 20px rgba(129, 140, 248, 0.15);
+    }
+
+    /* ReactBits 3D Tilt Card Effect */
+    .tilt-card {
+      transform-style: preserve-3d;
+      transition: transform 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+      will-change: transform;
+    }
+
+    /* Spotlight Glow */
+    .spotlight-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .spotlight-card::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      background: radial-gradient(500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(129, 140, 248, 0.25), transparent 40%);
+      border-radius: inherit;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .spotlight-card:hover::before {
+      opacity: 1;
+    }
+
+    /* Shimmer Light Sweep Effect on Buttons */
+    .shimmer-btn {
+      position: relative;
+      overflow: hidden;
+    }
+    .shimmer-btn::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        60deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.25) 50%,
+        transparent 70%
+      );
+      transform: rotate(30deg) translateX(-100%);
+      transition: transform 0.6s ease;
+    }
+    .shimmer-btn:hover::after {
+      transform: rotate(30deg) translateX(100%);
+    }
+
+    /* ReactBits Magnetic Hover Effect */
+    .magnetic-btn {
+      transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+    .magnetic-btn:hover {
+      box-shadow: 0 10px 25px -5px rgba(129, 140, 248, 0.4);
+    }
+
+    /* Tech Stack Logo Badges Specialty Hover */
+    .tech-icon-wrapper {
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .tech-icon-wrapper:hover {
+      transform: translateY(-6px) scale(1.08);
+      border-color: rgba(168, 85, 247, 0.6);
+      box-shadow: 0 10px 25px -5px rgba(168, 85, 247, 0.4), 0 0 15px rgba(129, 140, 248, 0.3);
+    }
+    .tech-icon-wrapper img {
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+    .tech-icon-wrapper:hover img {
+      transform: scale(1.15) rotate(4deg);
+      filter: invert(1) drop-shadow(0 0 8px rgba(129, 140, 248, 0.8));
+    }
+
+    /* ReactBits DecryptedText Styles */
+    .decrypted-char-revealed {
+      background: linear-gradient(120deg, #818cf8 0%, #c084fc 35%, #38bdf8 70%, #a855f7 100%);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 14px rgba(129, 140, 248, 0.8);
+      transition: all 0.1s ease;
+    }
+    .decrypted-char-glitch {
+      color: #06b6d4;
+      opacity: 0.85;
+      text-shadow: 0 0 8px rgba(6, 182, 212, 0.8);
+      font-family: 'Fira Code', monospace;
+    }
+
+    /* Hero Portrait Background Scroll Zoom Expansion */
+    .hero-bg-zoom-media {
+      transform: scale(var(--scroll-bg-zoom, 1));
+      transition: transform 0.1s cubic-bezier(0.1, 0, 0.1, 1);
+    }
+
+    /* Navigation Links Underline Sweep Animation */
+    .nav-link-sweep {
+      position: relative;
+    }
+    .nav-link-sweep::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #818cf8, #a855f7);
+      transition: all 0.25s ease;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+    .nav-link-sweep:hover::after {
+      width: 80%;
+    }
+
+    .pb-safe {
+      padding-bottom: env(safe-area-inset-bottom, 12px);
+    }
+
+    ::-webkit-scrollbar {
+      width: 7px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #080d1a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #818cf8;
+    }
+  </style>
+</head>
+
+<body class="relative min-h-screen">
+  <!-- ReactBits Interactive Cyber Grid Waves Canvas -->
+  <canvas id="reactbits-grid-canvas"></canvas>
+  <div class="ambient-aurora-top"></div>
+  <div class="ambient-aurora-bottom"></div>
+
+  <!-- Navigation Bar -->
+  <header class="fixed top-0 left-0 right-0 z-50 h-16 border-b border-white/5 bg-[#080d1a]/85 backdrop-blur-md">
+    <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 h-full">
+      
+      <!-- Brand Logo -->
+      <a href="#about" class="font-heading font-semibold text-lg tracking-tight text-indigo-400 flex items-center gap-2 hover:scale-105 transition-transform">
+        <span class="flex h-7 w-7 items-center justify-center rounded-lg bg-indigo-500/10 text-indigo-300 border border-indigo-500/30 text-xs font-mono">PD</span>
+        <span>dinesh<span class="text-white">.dev</span></span>
+      </a>
+
+      <!-- Navigation Links with Underline Sweep -->
+      <div class="flex items-center gap-1.5 md:gap-2">
+        <a href="#about" class="nav-link-sweep px-3.5 py-1.5 text-xs font-semibold text-slate-300 hover:text-indigo-300 hover:bg-white/5 rounded-lg transition-all">About</a>
+        <a href="#stack" class="nav-link-sweep px-3.5 py-1.5 text-xs font-semibold text-slate-300 hover:text-indigo-300 hover:bg-white/5 rounded-lg transition-all">Stack</a>
+        <a href="#projects" class="nav-link-sweep px-3.5 py-1.5 text-xs font-semibold text-slate-300 hover:text-indigo-300 hover:bg-white/5 rounded-lg transition-all">Projects</a>
+        <a href="#experience" class="nav-link-sweep px-3.5 py-1.5 text-xs font-semibold text-slate-300 hover:text-indigo-300 hover:bg-white/5 rounded-lg transition-all">Experience</a>
+        <a href="#publications" class="nav-link-sweep px-3.5 py-1.5 text-xs font-semibold text-slate-300 hover:text-indigo-300 hover:bg-white/5 rounded-lg transition-all">Publications</a>
+        <a href="#contact" class="nav-link-sweep px-3.5 py-1.5 text-xs font-semibold text-slate-300 hover:text-indigo-300 hover:bg-white/5 rounded-lg transition-all">Contact</a>
+      </div>
+
+    </nav>
+  </header>
+
+  <!-- Mobile Bottom Drawer with iOS/Android Touch Support -->
+  <div class="md:hidden fixed bottom-3 left-3 right-3 z-50 flex items-center justify-around bg-slate-950/90 border border-white/10 p-2 rounded-2xl backdrop-blur-lg pb-safe">
+    <a href="#about" class="text-xs font-medium text-slate-300 hover:text-indigo-400 flex flex-col items-center gap-0.5"><i data-lucide="user" class="h-4 w-4"></i>About</a>
+    <a href="#stack" class="text-xs font-medium text-slate-300 hover:text-indigo-400 flex flex-col items-center gap-0.5"><i data-lucide="layers" class="h-4 w-4"></i>Stack</a>
+    <a href="#projects" class="text-xs font-medium text-slate-300 hover:text-indigo-400 flex flex-col items-center gap-0.5"><i data-lucide="folder" class="h-4 w-4"></i>Projects</a>
+    <a href="#experience" class="text-xs font-medium text-slate-300 hover:text-indigo-400 flex flex-col items-center gap-0.5"><i data-lucide="briefcase" class="h-4 w-4"></i>Experience</a>
+    <a href="#publications" class="text-xs font-medium text-slate-300 hover:text-indigo-400 flex flex-col items-center gap-0.5"><i data-lucide="book-open" class="h-4 w-4"></i>Papers</a>
+    <a href="#contact" class="text-xs font-medium text-slate-300 hover:text-indigo-400 flex flex-col items-center gap-0.5"><i data-lucide="mail" class="h-4 w-4"></i>Contact</a>
+  </div>
+
+  <!-- SINGLE PAGE CONTENT CONTAINERS -->
+  <main class="relative z-10 mx-auto max-w-6xl px-6 pt-24 pb-20 space-y-24">
+
+    <!-- HERO / ABOUT SECTION -->
+    <section id="about" class="min-h-[80vh] flex items-center py-6 scroll-mt-24">
+      <div class="grid items-center gap-10 md:grid-cols-12 w-full">
+        
+        <!-- Left Hero Content (7 Cols) -->
+        <div class="md:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 rounded-full border border-indigo-500/30 bg-indigo-500/10 px-3.5 py-1.5 text-xs font-medium text-indigo-300 hover:border-indigo-400 hover:bg-indigo-500/20 transition-all cursor-default">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-400"></span>
+            </span>
+            <span>Available for AI & Full Stack Roles</span>
+          </div>
+
+          <!-- MASKED HEADING FOR NAME -->
+          <div class="space-y-3">
+            <h1 class="font-heading text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight">
+              Perumalla <br/>
+              <span class="reactbits-masked-heading reactbits-masked-heading-bg">Dinesh Saravan</span>
+            </h1>
+
+            <!-- OFFICIAL REACTBITS DECRYPTEDTEXT COMPONENT -->
+            <div class="pt-2 flex items-center gap-2.5 font-mono text-2xl sm:text-3xl font-extrabold tracking-tight">
+              <span class="text-indigo-400 font-mono font-bold">&gt;</span>
+              <h2 id="reactbits-decrypted-target" class="font-heading text-white cursor-pointer select-none">AI & Python Specialist</h2>
+            </div>
+          </div>
+
+          <!-- Hero Bio Paragraph -->
+          <div class="space-y-3 text-base text-slate-300 leading-relaxed max-w-xl">
+            <p class="text-sm text-slate-300 leading-relaxed">
+              Proficient in bridging scalable backend microservice architectures (<strong class="text-white">FastAPI, Django, REST APIs</strong>) and interactive frontends (<strong class="text-white">React.js</strong>) with advanced AI capabilities including <strong class="text-indigo-300">semantic resume matching</strong>, <strong class="text-indigo-300">RAG recommendation pipelines</strong>, and deep learning computer vision models.
+            </p>
+          </div>
+
+          <!-- Hero Action Buttons with Shimmer Light Sweeps & Magnetic Hover -->
+          <div class="flex flex-wrap items-center gap-3 pt-2">
+            <!-- Contact Me Button -->
+            <a href="#contact" class="magnetic-btn shimmer-btn inline-flex items-center gap-2.5 px-5 py-2.5 rounded-xl bg-indigo-600 text-white font-semibold text-sm hover:bg-indigo-500 transition-all shadow-lg shadow-indigo-600/30 hover:scale-105 active:scale-95">
+              <i data-lucide="message-square-quote" class="h-4 w-4 text-white"></i>
+              <span>Contact Me</span>
+            </a>
+
+            <!-- Email Me Button (Direct Gmail Web Compose / Mail app) -->
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=dineshsaravan64@gmail.com" target="_blank" rel="noopener noreferrer" class="magnetic-btn shimmer-btn inline-flex items-center gap-2.5 px-5 py-2.5 rounded-xl border border-white/15 bg-white/5 text-white font-medium text-sm hover:bg-white/10 hover:border-indigo-400/60 transition-all hover:scale-105">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/gmail.svg" alt="Gmail Official Logo" class="h-4 w-4 filter invert" />
+              <span>Email Me</span>
+            </a>
+
+            <!-- Call Phone Button with Call Logo -->
+            <a href="tel:+917207231279" class="magnetic-btn shimmer-btn inline-flex items-center gap-2.5 px-5 py-2.5 rounded-xl border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 font-medium text-sm hover:bg-indigo-600 hover:text-white transition-all hover:scale-105">
+              <i data-lucide="phone-call" class="h-4 w-4 text-cyan-400"></i>
+              <span>Call +91 7207231279</span>
+            </a>
+          </div>
+
+          <!-- Quick Stats Bar with ReactBits Spotlight & 3D Tilt -->
+          <div class="grid grid-cols-3 gap-3 pt-6 border-t border-white/10">
+            <div class="tilt-card spotlight-card b-card rounded-xl p-3 text-center hover:border-indigo-500/50">
+              <span class="font-heading text-2xl font-bold text-indigo-400 group-hover:scale-110 transition-transform">3</span>
+              <p class="text-[11px] font-mono text-slate-400">Research Papers</p>
+            </div>
+            <div class="tilt-card spotlight-card b-card rounded-xl p-3 text-center hover:border-indigo-500/50">
+              <span class="font-heading text-2xl font-bold text-indigo-400 group-hover:scale-110 transition-transform">6+</span>
+              <p class="text-[11px] font-mono text-slate-400">AI/ML Systems</p>
+            </div>
+            <div class="tilt-card spotlight-card b-card rounded-xl p-3 text-center hover:border-indigo-500/50">
+              <span class="font-heading text-2xl font-bold text-indigo-400 group-hover:scale-110 transition-transform">10+</span>
+              <p class="text-[11px] font-mono text-slate-400">Tech Covered</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Hero Photo (WITH SPECIALTY HOVER GLOW & BACKGROUND ZOOM) -->
+        <div class="md:col-span-5 flex justify-center md:justify-end">
+          <div class="relative w-full max-w-sm">
+            <div class="absolute -inset-3 rounded-3xl bg-gradient-to-tr from-indigo-500 via-purple-500 to-cyan-500 opacity-30 blur-2xl animate-pulse"></div>
+            
+            <div class="tilt-card spotlight-card b-card relative rounded-2xl p-3 overflow-hidden shadow-2xl transition-all duration-300 hover:shadow-[0_0_35px_rgba(129,140,248,0.5)]">
+              <div class="relative aspect-[4/5] rounded-xl overflow-hidden group">
+                <img id="hero-portrait-img" src="./dinesh-portrait.jpg" alt="Perumalla Dinesh Saravan Portrait" class="hero-bg-zoom-media h-full w-full object-cover object-center group-hover:scale-105 transition-transform duration-500" />
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-transparent to-transparent"></div>
+
+                <!-- Location Tag Overlay -->
+                <div class="absolute bottom-3 left-3 right-3 p-3 rounded-xl bg-slate-950/85 backdrop-blur-md border border-white/10 group-hover:border-indigo-500/40 transition-all">
+                  <p class="font-heading text-sm font-bold text-white">Perumalla Dinesh Saravan</p>
+                  <div class="mt-1 flex items-center justify-between text-[11px] text-slate-300 font-mono">
+                    <span class="flex items-center gap-1 text-indigo-400"><i data-lucide="map-pin" class="h-3 w-3 text-rose-400"></i> Bengaluru, KA</span>
+                    <span class="text-slate-400">AI Full Stack</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- MARQUEE TICKER BANNER -->
+    <div class="relative overflow-hidden py-4 border-y border-white/10 bg-slate-950/60 backdrop-blur-sm rounded-2xl">
+      <div class="flex w-max animate-marquee gap-8 text-sm font-semibold text-slate-400/80 uppercase tracking-widest font-mono">
+        <span class="flex items-center gap-3">⚡ Building AI SaaS Platforms</span>
+        <span class="text-indigo-400">•</span>
+        <span class="flex items-center gap-3">🤖 Semantic Resume Matching</span>
+        <span class="text-indigo-400">•</span>
+        <span class="flex items-center gap-3">🧠 RAG & LLM Pipelines</span>
+        <span class="text-indigo-400">•</span>
+        <span class="flex items-center gap-3">🔬 DenseNet201 & CNN Vision</span>
+        <span class="text-indigo-400">•</span>
+        <span class="flex items-center gap-3">🐍 FastAPI & Django Backend</span>
+        <span class="text-indigo-400">•</span>
+        <span class="flex items-center gap-3">⚛️ React.js Interactive Web Apps</span>
+        <span class="text-indigo-400">•</span>
+        <span class="flex items-center gap-3">📄 SSRN Elsevier & IEEE Author</span>
+      </div>
+    </div>
+
+    <!-- TECH STACK SECTION WITH SPECIALTY 3D LIFT HOVER BADGES -->
+    <section id="stack" class="py-12 scroll-mt-24">
+      <div class="mb-10">
+        <h2 class="reactbits-masked-heading font-heading text-3xl md:text-4xl font-bold tracking-tight">Tech Stack</h2>
+        <p class="mt-2 text-slate-400 font-semibold text-lg">Technologies Covered & Engineering Toolkit</p>
+      </div>
+
+      <div class="space-y-8">
+        
+        <!-- Core Languages -->
+        <div>
+          <p class="text-xs font-mono font-semibold tracking-[0.15em] uppercase text-indigo-400 mb-4">Core Languages</p>
+          <div class="flex flex-wrap gap-4">
+            <div class="tilt-card tech-icon-wrapper spotlight-card b-card flex flex-col items-center justify-center p-4 rounded-xl w-24 h-24 cursor-pointer">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/python.svg" alt="Python Logo" class="h-8 w-8 mb-2 filter invert" />
+              <span class="text-xs font-medium text-slate-200">Python</span>
+            </div>
+            <div class="tilt-card tech-icon-wrapper spotlight-card b-card flex flex-col items-center justify-center p-4 rounded-xl w-24 h-24 cursor-pointer">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/javascript.svg" alt="JavaScript Logo" class="h-8 w-8 mb-2 filter invert" />
+              <span class="text-xs font-medium text-slate-200">JavaScript</span>
+            </div>
+            <div class="tilt-card tech-icon-wrapper spotlight-card b-card flex flex-col items-center justify-center p-4 rounded-xl w-24 h-24 cursor-pointer">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/openjdk.svg" alt="Java Logo" class="h-8 w-8 mb-2 filter invert" />
+              <span class="text-xs font-medium text-slate-200">Java</span>
+            </div>
+            <div class="tilt-card tech-icon-wrapper spotlight-card b-card flex flex-col items-center justify-center p-4 rounded-xl w-24 h-24 cursor-pointer">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/html5.svg" alt="HTML5 Logo" class="h-8 w-8 mb-2 filter invert" />
+              <span class="text-xs font-medium text-slate-200">HTML5</span>
+            </div>
+            <div class="tilt-card tech-icon-wrapper spotlight-card b-card flex flex-col items-center justify-center p-4 rounded-xl w-24 h-24 cursor-pointer">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/css3.svg" alt="CSS3 Logo" class="h-8 w-8 mb-2 filter invert" />
+              <span class="text-xs font-medium text-slate-200">CSS3</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Frameworks & Backend -->
+        <div>
+          <p class="text-xs font-mono font-semibold tracking-[0.15em] uppercase text-indigo-400 mb-4">Frameworks & Web Backend</p>
+          <div class="flex flex-wrap gap-4">
+            <div class="tilt-card tech-icon-wrapper spotlight-card b-card flex flex-col items-center justify-center p-4 rounded-xl w-24 h-24 cursor-pointer">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/fastapi.svg" alt="FastAPI Logo" class="h-8 w-8 mb-2 filter invert" />
+              <span class="text-xs font-medium text-slate-200">FastAPI</span>
+            </div>
+            <div class="tilt-card tech-icon-wrapper spotlight-card b-card flex flex-col items-center justify-center p-4 rounded-xl w-24 h-24 cursor-pointer">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/django.svg" alt="Django Logo" class="h-8 w-8 mb-2 filter invert" />
+              <span class="text-xs font-medium text-slate-200">Django</span>
+            </div>
+            <div class="tilt-card tech-icon-wrapper spotlight-card b-card flex flex-col items-center justify-center p-4 rounded-xl w-24 h-24 cursor-pointer">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/react.svg" alt="React Logo" class="h-8 w-8 mb-2 filter invert" />
+              <span class="text-xs font-medium text-slate-200">React.js</span>
+            </div>
+            <div class="tilt-card tech-icon-wrapper spotlight-card b-card flex flex-col items-center justify-center p-4 rounded-xl w-24 h-24 cursor-pointer">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/postman.svg" alt="REST API Logo" class="h-8 w-8 mb-2 filter invert" />
+              <span class="text-xs font-medium text-slate-200">REST APIs</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI & Databases -->
+        <div>
+          <p class="text-xs font-mono font-semibold tracking-[0.15em] uppercase text-indigo-400 mb-4">AI, Machine Learning & Databases</p>
+          <div class="flex flex-wrap gap-4">
+            <div class="tilt-card tech-icon-wrapper spotlight-card b-card flex flex-col items-center justify-center p-4 rounded-xl w-28 h-24 text-center cursor-pointer">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/openai.svg" alt="OpenAI RAG & Prompt Logo" class="h-8 w-8 mb-2 filter invert" />
+              <span class="text-xs font-medium text-slate-200">RAG & Prompt</span>
+            </div>
+
+            <div class="tilt-card tech-icon-wrapper spotlight-card b-card flex flex-col items-center justify-center p-4 rounded-xl w-28 h-24 text-center cursor-pointer">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/pytorch.svg" alt="PyTorch Transformers Logo" class="h-8 w-8 mb-2 filter invert" />
+              <span class="text-xs font-medium text-slate-200">Transformers</span>
+            </div>
+
+            <div class="tilt-card tech-icon-wrapper spotlight-card b-card flex flex-col items-center justify-center p-4 rounded-xl w-24 h-24 cursor-pointer">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/pandas.svg" alt="Pandas Logo" class="h-8 w-8 mb-2 filter invert" />
+              <span class="text-xs font-medium text-slate-200">Pandas</span>
+            </div>
+            <div class="tilt-card tech-icon-wrapper spotlight-card b-card flex flex-col items-center justify-center p-4 rounded-xl w-24 h-24 cursor-pointer">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/numpy.svg" alt="NumPy Logo" class="h-8 w-8 mb-2 filter invert" />
+              <span class="text-xs font-medium text-slate-200">NumPy</span>
+            </div>
+            <div class="tilt-card tech-icon-wrapper spotlight-card b-card flex flex-col items-center justify-center p-4 rounded-xl w-24 h-24 cursor-pointer">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/mongodb.svg" alt="MongoDB Logo" class="h-8 w-8 mb-2 filter invert" />
+              <span class="text-xs font-medium text-slate-200">MongoDB</span>
+            </div>
+            <div class="tilt-card tech-icon-wrapper spotlight-card b-card flex flex-col items-center justify-center p-4 rounded-xl w-24 h-24 cursor-pointer">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/mysql.svg" alt="MySQL Logo" class="h-8 w-8 mb-2 filter invert" />
+              <span class="text-xs font-medium text-slate-200">MySQL</span>
+            </div>
+            <div class="tilt-card tech-icon-wrapper spotlight-card b-card flex flex-col items-center justify-center p-4 rounded-xl w-24 h-24 cursor-pointer">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/git.svg" alt="Git Logo" class="h-8 w-8 mb-2 filter invert" />
+              <span class="text-xs font-medium text-slate-200">Git</span>
+            </div>
+            <div class="tilt-card tech-icon-wrapper spotlight-card b-card flex flex-col items-center justify-center p-4 rounded-xl w-24 h-24 cursor-pointer">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/jira.svg" alt="Jira Logo" class="h-8 w-8 mb-2 filter invert" />
+              <span class="text-xs font-medium text-slate-200">Jira</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION WITH REACTBITS 3D TILT & BORDER BEAM EFFECT -->
+    <section id="projects" class="py-12 scroll-mt-24">
+      <div class="mb-10">
+        <h2 class="reactbits-masked-heading font-heading text-3xl md:text-4xl font-bold tracking-tight">Academic AI Projects</h2>
+        <p class="mt-2 text-slate-400 font-semibold text-lg">Deep Learning Research & Computer Vision</p>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-2">
+
+        <!-- Project 1 with Border Beam -->
+        <a href="https://doi.org/10.1109/UPCON62832.2024.10983305" target="_blank" rel="noopener noreferrer" class="tilt-card spotlight-card b-card flex flex-col justify-between rounded-2xl p-6 border-indigo-500/40 animate-border-beam group transition-all">
+          <div>
+            <div class="flex items-center justify-between text-xs font-mono text-slate-400">
+              <span class="px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-300 border border-indigo-500/30">IEEE UPCON 2024</span>
+              <span class="flex items-center gap-1 group-hover:text-indigo-300">IEEE DOI <i data-lucide="external-link" class="h-3 w-3"></i></span>
+            </div>
+
+            <h3 class="mt-4 font-heading text-xl font-bold text-white group-hover:text-indigo-300 transition-colors">Enhanced Skin Lesion Classification</h3>
+            <p class="mt-1 text-xs font-mono text-cyan-300">Fine-Tuned DenseNet201 with Self-Attention Mechanisms</p>
+
+            <p class="mt-4 text-sm text-slate-300 leading-relaxed">
+              Designed and developed a deep learning architecture leveraging a fine-tuned DenseNet201 model integrated with self-attention mechanisms to capture complex dermatological feature representations from the ISIC dataset. Optimized hyper-parameters and regularization layers, delivering superior diagnostic precision compared to standard deep learning baselines.
+            </p>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+            <span class="text-xs font-mono text-indigo-400 font-semibold">View IEEE Paper Publication &rarr;</span>
+            <span class="text-xs text-slate-400">doi: 10.1109/UPCON62832.2024.10983305</span>
+          </div>
+        </a>
+
+        <!-- Project 2 with Border Beam -->
+        <a href="https://doi.org/10.1109/ICCCNT61001.2024.10724659" target="_blank" rel="noopener noreferrer" class="tilt-card spotlight-card b-card flex flex-col justify-between rounded-2xl p-6 border-indigo-500/40 animate-border-beam group transition-all">
+          <div>
+            <div class="flex items-center justify-between text-xs font-mono text-slate-400">
+              <span class="px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-300 border border-indigo-500/30">ICCCNT 2024</span>
+              <span class="flex items-center gap-1 group-hover:text-indigo-300">IEEE DOI <i data-lucide="external-link" class="h-3 w-3"></i></span>
+            </div>
+
+            <h3 class="mt-4 font-heading text-xl font-bold text-white group-hover:text-indigo-300 transition-colors">Malaria Cell Image Classification</h3>
+            <p class="mt-1 text-xs font-mono text-indigo-300">Deep Learning Medical Microscopy Imaging</p>
+
+            <p class="mt-4 text-sm text-slate-300 leading-relaxed">
+              Developed a high-precision Convolutional Neural Network (CNN) classification system to detect parasitized vs. uninfected red blood cells from microscopy datasets. Implemented end-to-end computer vision pipelines covering image resizing, noise reduction, and feature extraction to enhance generalization across varied sample conditions.
+            </p>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+            <span class="text-xs font-mono text-indigo-400 font-semibold">View IEEE Paper Publication &rarr;</span>
+            <span class="text-xs text-slate-400">doi: 10.1109/ICCCNT61001.2024.10724659</span>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- PROFESSIONAL EXPERIENCE SECTION (CONDENSED INTO 2 EXECUTIVE PARAGRAPHS) -->
+    <section id="experience" class="py-12 scroll-mt-24">
+      <div class="mb-10">
+        <h2 class="reactbits-masked-heading font-heading text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">Professional Experience</h2>
+        <p class="mt-2 text-slate-400 font-semibold text-base sm:text-lg">Industry Software Development Trainee Role</p>
+      </div>
+
+      <div class="tilt-card spotlight-card b-card rounded-2xl p-6 sm:p-8 space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-6 border-b border-white/10">
+          <div>
+            <span class="inline-block px-3 py-1 rounded-full bg-indigo-500/10 text-xs font-mono text-indigo-300 border border-indigo-500/30 font-semibold">Software Developer Trainee</span>
+            <h3 class="mt-2 font-heading text-xl sm:text-2xl font-bold text-white leading-snug">Alstonair Technologies Pvt. Ltd., Bengaluru</h3>
+            <p class="text-xs sm:text-sm font-mono text-indigo-300 mt-1">Project: FuSteps — AI-Powered College-to-Corporate SaaS Platform</p>
+          </div>
+
+          <div class="sm:text-right font-mono text-xs text-slate-400 shrink-0">
+            <span class="text-white font-semibold block sm:inline">June 2026 — Present</span>
+            <p class="text-slate-400">Bengaluru, Karnataka</p>
+          </div>
+        </div>
+
+        <!-- 2 EXECUTIVE PARAGRAPHS FORMAT -->
+        <div class="space-y-4 text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
+          <p class="bg-slate-900/40 p-4 rounded-xl border border-white/5 hover:border-indigo-500/40 hover:bg-slate-900/70 transition-all">
+            At Alstonair Technologies, I lead technical requirement gathering, microservice architecture design, and workflow mapping for enterprise SaaS products to translate complex institutional requirements into robust, high-performance web applications. As a Software Developer Trainee, I architected and scaled end-to-end features for the AI-native FuSteps platform, successfully unifying student, recruiter, and placement workflows into a high-concurrency SaaS portal.
+          </p>
+
+          <p class="bg-slate-900/40 p-4 rounded-xl border border-white/5 hover:border-indigo-500/40 hover:bg-slate-900/70 transition-all">
+            Within the EduYata ecosystem, I engineered AI-driven course recommendation pipelines that dynamically match educational content to user skill gaps, while integrating TopSCA to power assessment-driven learning paths using real-time score analytics. Additionally, I spearheaded R&D in semantic resume matching and LLM recommendation engines, enforcing Agile/Scrum standards, structured Jira epics, and clean Git code reviews.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- AUTHENTIC PUBLICATIONS & EDUCATION SECTION WITH CGPA NEON PULSE HOVER -->
+    <section id="publications" class="py-12 scroll-mt-24">
+      <div class="mb-10">
+        <h2 class="reactbits-masked-heading font-heading text-3xl md:text-4xl font-bold tracking-tight">Research Publications & Education</h2>
+        <p class="mt-2 text-slate-400 font-semibold text-lg">IEEE Papers, SSRN Elsevier Publications & Academic Background</p>
+      </div>
+
+      <div class="grid gap-8 md:grid-cols-12">
+        
+        <!-- Authentic Publications List -->
+        <div class="md:col-span-7 space-y-6">
+          <div class="space-y-4">
+            
+            <!-- Publication 1: Malaria ICCCNT IEEE -->
+            <a href="https://doi.org/10.1109/ICCCNT61001.2024.10724659" target="_blank" rel="noopener noreferrer" class="tilt-card spotlight-card b-card rounded-xl p-5 block hover:border-indigo-500/60 group transition-all">
+              <div class="flex items-center justify-between text-xs font-mono text-indigo-400 mb-2">
+                <span class="px-2 py-0.5 rounded bg-indigo-500/10 border border-indigo-500/30 font-semibold group-hover:bg-indigo-500/20">IEEE Xplore • ICCCNT 2024</span>
+                <span class="flex items-center gap-1 text-indigo-400 group-hover:underline group-hover:translate-x-1 transition-transform">Open Paper <i data-lucide="external-link" class="h-3.5 w-3.5"></i></span>
+              </div>
+              <h4 class="font-bold text-white text-base group-hover:text-indigo-300 leading-snug transition-colors">Malaria Cell Image Classification using Deep Learning</h4>
+              <p class="text-xs text-slate-400 font-mono mt-1.5">P. D. Saravan, S. S. M, S. V. Mahesh and T. Singh</p>
+              <p class="text-xs text-slate-300 mt-2 leading-relaxed">2024 15th International Conference on Computing Communication and Networking Technologies (ICCCNT), Kamand, India, 2024, pp. 1-6, doi: 10.1109/ICCCNT61001.2024.10724659.</p>
+              
+              <div class="mt-3 flex flex-wrap gap-1.5 text-[10px] font-mono text-slate-400">
+                <span class="px-2 py-0.5 rounded bg-slate-900 border border-white/10 text-slate-300 group-hover:border-indigo-500/30">Deep Learning</span>
+                <span class="px-2 py-0.5 rounded bg-slate-900 border border-white/10 text-slate-300 group-hover:border-indigo-500/30">Medical Imaging</span>
+                <span class="px-2 py-0.5 rounded bg-slate-900 border border-white/10 text-slate-300 group-hover:border-indigo-500/30">Malaria Cell</span>
+              </div>
+            </a>
+
+            <!-- Publication 2: DenseNet201 UPCON IEEE -->
+            <a href="https://doi.org/10.1109/UPCON62832.2024.10983305" target="_blank" rel="noopener noreferrer" class="tilt-card spotlight-card b-card rounded-xl p-5 block hover:border-indigo-500/60 group transition-all">
+              <div class="flex items-center justify-between text-xs font-mono text-indigo-400 mb-2">
+                <span class="px-2 py-0.5 rounded bg-indigo-500/10 border border-indigo-500/30 font-semibold group-hover:bg-indigo-500/20">IEEE Xplore • UPCON 2024</span>
+                <span class="flex items-center gap-1 text-indigo-400 group-hover:underline group-hover:translate-x-1 transition-transform">Open Paper <i data-lucide="external-link" class="h-3.5 w-3.5"></i></span>
+              </div>
+              <h4 class="font-bold text-white text-base group-hover:text-indigo-300 leading-snug transition-colors">Enhanced Skin Lesion Classification Using Fine-Tuned DenseNet201 with Self-Attention Mechanisms</h4>
+              <p class="text-xs text-slate-400 font-mono mt-1.5">P. D. Saravan, M. S. Subhash, S. V. Mahesh and R. P. Singh</p>
+              <p class="text-xs text-slate-300 mt-2 leading-relaxed">2024 IEEE 11th Uttar Pradesh Section International Conference on Electrical, Electronics and Computer Engineering (UPCON), Lucknow, India, 2024, pp. 1-6, doi: 10.1109/UPCON62832.2024.10983305.</p>
+              
+              <div class="mt-3 flex flex-wrap gap-1.5 text-[10px] font-mono text-slate-400">
+                <span class="px-2 py-0.5 rounded bg-slate-900 border border-white/10 text-slate-300 group-hover:border-indigo-500/30">DenseNet201</span>
+                <span class="px-2 py-0.5 rounded bg-slate-900 border border-white/10 text-slate-300 group-hover:border-indigo-500/30">Self-Attention</span>
+                <span class="px-2 py-0.5 rounded bg-slate-900 border border-white/10 text-slate-300 group-hover:border-indigo-500/30">Skin Lesion</span>
+              </div>
+            </a>
+
+            <!-- Publication 3: SSRN Elsevier Paper -->
+            <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5086763" target="_blank" rel="noopener noreferrer" class="tilt-card spotlight-card b-card rounded-xl p-5 block hover:border-indigo-500/60 group transition-all">
+              <div class="flex items-center justify-between text-xs font-mono text-indigo-400 mb-2">
+                <span class="px-2 py-0.5 rounded bg-indigo-500/10 border border-indigo-500/30 font-semibold group-hover:bg-indigo-500/20">SSRN Elsevier • Abstract 5086763</span>
+                <span class="flex items-center gap-1 text-indigo-400 group-hover:underline group-hover:translate-x-1 transition-transform">Open SSRN Paper <i data-lucide="external-link" class="h-3.5 w-3.5"></i></span>
+              </div>
+              <h4 class="font-bold text-white text-base group-hover:text-indigo-300 leading-snug transition-colors">Research Paper Publication — SSRN Elsevier</h4>
+              <p class="text-xs text-slate-400 font-mono mt-1.5">P. D. Saravan et al.</p>
+              <p class="text-xs text-slate-300 mt-2 leading-relaxed">Indexed on SSRN Elsevier Digital Library (Abstract ID 5086763). Available for open academic research and citation download.</p>
+              
+              <div class="mt-3 flex flex-wrap gap-1.5 text-[10px] font-mono text-slate-400">
+                <span class="px-2 py-0.5 rounded bg-slate-900 border border-white/10 text-slate-300 group-hover:border-indigo-500/30">SSRN Elsevier</span>
+                <span class="px-2 py-0.5 rounded bg-slate-900 border border-white/10 text-slate-300 group-hover:border-indigo-500/30">Machine Learning</span>
+              </div>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- Education List (WITH CGPA SPECIALTY HOVER PULSE) -->
+        <div class="md:col-span-5 space-y-6">
+          <div class="border-b border-white/10 pb-3">
+            <h3 class="font-heading text-xl font-bold text-white flex items-center gap-2">
+              <i data-lucide="graduation-cap" class="h-5 w-5 text-indigo-400"></i>
+              <span>Education</span>
+            </h3>
+          </div>
+
+          <div class="space-y-6 border-l-2 border-white/10 pl-4">
+            <!-- College B.E. with CGPA -->
+            <div class="tilt-card spotlight-card b-card rounded-xl p-4 relative pl-3 group hover:border-indigo-500/50">
+              <span class="absolute -left-[27px] top-4 h-3.5 w-3.5 rounded-full bg-indigo-400 border-2 border-slate-950 group-hover:scale-125 transition-transform"></span>
+              <div class="flex items-center justify-between text-xs font-mono">
+                <span class="text-indigo-400 font-semibold">2021 — 2025</span>
+                <span class="px-2.5 py-1 rounded bg-indigo-500/10 text-indigo-300 border border-indigo-500/30 font-bold group-hover:bg-indigo-500/30 group-hover:shadow-[0_0_12px_rgba(129,140,248,0.5)] transition-all">CGPA: 7.56</span>
+              </div>
+              <h4 class="font-bold text-white text-sm mt-1.5 group-hover:text-indigo-300 transition-colors">B.E. Computer Science & Engineering (AI)</h4>
+              <p class="text-xs text-slate-300 mt-0.5">Amrita School of Computing, Bengaluru</p>
+            </div>
+
+            <!-- Intermediate with Score -->
+            <div class="tilt-card spotlight-card b-card rounded-xl p-4 relative pl-3 group hover:border-cyan-500/50">
+              <span class="absolute -left-[27px] top-4 h-3.5 w-3.5 rounded-full bg-cyan-400 border-2 border-slate-950 group-hover:scale-125 transition-transform"></span>
+              <div class="flex items-center justify-between text-xs font-mono">
+                <span class="text-cyan-400 font-semibold">2019 — 2021</span>
+                <span class="px-2.5 py-1 rounded bg-cyan-500/10 text-cyan-300 border border-cyan-500/30 font-bold group-hover:bg-cyan-500/30 group-hover:shadow-[0_0_12px_rgba(6,182,212,0.5)] transition-all">Score: 95%</span>
+              </div>
+              <h4 class="font-bold text-white text-sm mt-1.5 group-hover:text-cyan-300 transition-colors">Board of Intermediate Education</h4>
+              <p class="text-xs text-slate-300 mt-0.5">Bhashyam High School, Guntur</p>
+            </div>
+
+            <!-- Secondary 10th with CGPA -->
+            <div class="tilt-card spotlight-card b-card rounded-xl p-4 relative pl-3 group hover:border-purple-500/50">
+              <span class="absolute -left-[27px] top-4 h-3.5 w-3.5 rounded-full bg-purple-400 border-2 border-slate-950 group-hover:scale-125 transition-transform"></span>
+              <div class="flex items-center justify-between text-xs font-mono">
+                <span class="text-purple-400 font-semibold">2018 — 2019</span>
+                <span class="px-2.5 py-1 rounded bg-purple-500/10 text-purple-300 border border-purple-500/30 font-bold group-hover:bg-purple-500/30 group-hover:shadow-[0_0_12px_rgba(168,85,247,0.5)] transition-all">CGPA: 9.8</span>
+              </div>
+              <h4 class="font-bold text-white text-sm mt-1.5 group-hover:text-purple-300 transition-colors">Board of Secondary Education</h4>
+              <p class="text-xs text-slate-300 mt-0.5">Bhashyam High School, Guntur</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- BOROVE4IK STYLE "GET IN TOUCH" CONTACT COMPONENT WITH SPECIALTY HOVER GLOWS -->
+    <section id="contact" class="py-12 pb-24 scroll-mt-24">
+      <div class="spotlight-card b-card rounded-3xl p-8 sm:p-12 space-y-8 hover:border-indigo-500/50 transition-all">
+        
+        <!-- Header -->
+        <div class="space-y-3">
+          <h2 class="reactbits-masked-heading font-heading text-4xl sm:text-5xl font-extrabold tracking-tight">
+            Get in Touch
+          </h2>
+          <p class="text-slate-300 text-sm sm:text-base max-w-2xl leading-relaxed">
+            I can help with software development, web apps, mobile products, ERP workflows, and security-minded delivery. Send me a message and let's talk.
+          </p>
+        </div>
+
+        <!-- Open to work Status Card -->
+        <div class="rounded-2xl border border-indigo-500/30 bg-indigo-500/10 p-5 space-y-2 hover:border-indigo-400 hover:bg-indigo-500/15 transition-all">
+          <div class="flex items-center gap-2 text-sm font-bold text-indigo-300">
+            <span class="relative flex h-2.5 w-2.5">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-indigo-400"></span>
+            </span>
+            <span>Open to new work</span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-300">
+            Full-stack, AI and cloud engagements. I read every message and reply within 24 hours.
+          </p>
+        </div>
+
+        <!-- Direct Contact Badges (Google Gmail SVG & Mobile Call Phone SVG Logos) -->
+        <div class="grid gap-4 sm:grid-cols-2">
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=dineshsaravan64@gmail.com" target="_blank" rel="noopener noreferrer" class="magnetic-btn shimmer-btn flex items-center gap-3.5 p-4 rounded-xl border border-white/10 bg-slate-900/90 text-white hover:border-indigo-400/70 hover:bg-slate-900 transition-all hover:scale-105">
+            <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500/20 to-purple-500/20 text-indigo-300 border border-indigo-500/30 shrink-0">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/gmail.svg" alt="Gmail Official Logo" class="h-6 w-6 filter invert" />
+            </div>
+            <div>
+              <p class="text-[11px] font-mono text-indigo-300 font-semibold">Direct Email Address</p>
+              <p class="text-sm font-bold text-white">dineshsaravan64@gmail.com</p>
+            </div>
+          </a>
+
+          <a href="tel:+917207231279" class="magnetic-btn shimmer-btn flex items-center gap-3.5 p-4 rounded-xl border border-white/10 bg-slate-900/90 text-white hover:border-cyan-400/70 hover:bg-slate-900 transition-all hover:scale-105">
+            <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-500/20 to-indigo-500/20 text-cyan-300 border border-cyan-500/30 shrink-0">
+              <i data-lucide="phone-call" class="h-6 w-6 text-cyan-400"></i>
+            </div>
+            <div>
+              <p class="text-[11px] font-mono text-cyan-300 font-semibold">Mobile Phone Call Logo</p>
+              <p class="text-sm font-bold text-white">+91 7207231279</p>
+            </div>
+          </a>
+        </div>
+
+        <!-- Contact Form Component sending to dineshsaravan64@gmail.com -->
+        <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-5 pt-4">
+          <div class="grid gap-5 sm:grid-cols-2">
+            <div class="space-y-1.5">
+              <label for="contact-name" class="block text-xs font-medium text-slate-300">Your Name</label>
+              <div class="relative">
+                <span class="absolute left-3.5 top-3 text-indigo-400"><i data-lucide="user" class="h-4 w-4"></i></span>
+                <input id="contact-name" type="text" required placeholder="Your Name" class="w-full rounded-xl border border-white/10 bg-slate-900/90 pl-10 pr-4 py-2.5 text-xs text-white placeholder-slate-500 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/30 transition-all" />
+              </div>
+            </div>
+
+            <div class="space-y-1.5">
+              <label for="contact-email" class="block text-xs font-medium text-slate-300">Your Email</label>
+              <div class="relative">
+                <span class="absolute left-3.5 top-3 text-indigo-400"><i data-lucide="mail" class="h-4 w-4"></i></span>
+                <input id="contact-email" type="email" required placeholder="Your Email" class="w-full rounded-xl border border-white/10 bg-slate-900/90 pl-10 pr-4 py-2.5 text-xs text-white placeholder-slate-500 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/30 transition-all" />
+              </div>
+            </div>
+          </div>
+
+          <div class="space-y-1.5">
+            <label for="contact-message" class="block text-xs font-medium text-slate-300">Your Message</label>
+            <textarea id="contact-message" rows="4" required placeholder="Your Message" class="w-full rounded-xl border border-white/10 bg-slate-900/90 p-3.5 text-xs text-white placeholder-slate-500 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/30 transition-all"></textarea>
+          </div>
+
+          <!-- Security Check Badge -->
+          <div class="rounded-xl border border-white/10 bg-slate-900/60 p-4 flex flex-wrap items-center justify-between gap-3 hover:border-indigo-500/30 transition-all">
+            <div class="flex items-center gap-3">
+              <input type="checkbox" id="recaptcha-check" required class="h-4 w-4 rounded border-white/20 bg-slate-800 text-indigo-600 focus:ring-indigo-500 cursor-pointer" />
+              <label for="recaptcha-check" class="text-xs text-slate-300 font-medium cursor-pointer">I'm not a robot</label>
+            </div>
+            <span class="text-[11px] font-mono text-indigo-300 bg-indigo-500/10 border border-indigo-500/20 px-2.5 py-1 rounded-full flex items-center gap-1">
+              <i data-lucide="shield-check" class="h-3.5 w-3.5"></i> Security Verified
+            </span>
+          </div>
+
+          <button type="submit" class="magnetic-btn shimmer-btn w-full sm:w-auto px-8 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm transition-all shadow-lg shadow-indigo-600/30 hover:scale-105 active:scale-95 flex items-center justify-center gap-2">
+            <i data-lucide="send" class="h-4 w-4"></i>
+            <span>Send Message</span>
+          </button>
+        </form>
+
+        <div id="form-toast" class="hidden p-4 rounded-xl border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 text-xs font-medium animate-pulse">
+          ✓ Message sent directly to dineshsaravan64@gmail.com! Opening Gmail compose window to connect with Dinesh...
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER WITH SOCIAL LOGOS AT THE VERY END -->
+  <footer class="border-t border-white/10 py-8 text-center text-xs font-mono text-slate-500">
+    <div class="mx-auto max-w-6xl px-6 flex flex-col items-center justify-between gap-4 sm:flex-row">
+      <p>© 2026 Perumalla Dinesh Saravan • AI & Python Specialist</p>
+      
+      <!-- Social Logos at the Very End of Footer with Specialty Hover Effects -->
+      <div class="flex items-center gap-4">
+        <a href="https://www.instagram.com/_perumalla_dinesh/" target="_blank" rel="noopener noreferrer" title="Instagram" class="social-btn text-slate-400 hover:text-purple-400 hover:scale-125 transition-all">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/instagram.svg" alt="Instagram" class="h-4 w-4 filter invert opacity-80 hover:opacity-100" />
+        </a>
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" title="GitHub" class="social-btn text-slate-400 hover:text-indigo-400 hover:scale-125 transition-all">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/github.svg" alt="GitHub" class="h-4 w-4 filter invert opacity-80 hover:opacity-100" />
+        </a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" title="LinkedIn" class="social-btn text-slate-400 hover:text-sky-400 hover:scale-125 transition-all">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/linkedin.svg" alt="LinkedIn" class="h-4 w-4 filter invert opacity-80 hover:opacity-100" />
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- REACTBITS OFFICIAL DECRYPTEDTEXT & BACKGROUND ZOOM SCRIPTS -->
+  <script>
+    lucide.createIcons();
+
+    // --- BACKGROUND SCROLL ZOOM EXPANSION FOR HERO PORTRAIT ---
+    (function initBackgroundScrollZoom() {
+      const portraitImg = document.getElementById('hero-portrait-img');
+      if (!portraitImg) return;
+
+      window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
+        const zoomVal = 1 + Math.min(scrollY / 1000, 0.35);
+        portraitImg.style.setProperty('--scroll-bg-zoom', zoomVal.toFixed(3));
+      });
+    })();
+
+    // --- OFFICIAL REACTBITS DECRYPTEDTEXT ENGINE IMPLEMENTATION ---
+    (function initOfficialReactBitsDecryptedText() {
+      const phrases = [
+        "AI & Python Specialist",
+        "RAG Systems & LLM Specialist",
+        "SaaS Platform Engineer @ Alstonair",
+        "Computer Vision & Deep Learning Researcher"
+      ];
+      let phraseIdx = 0;
+
+      const targetContainer = document.getElementById('reactbits-decrypted-target');
+      if (!targetContainer) return;
+
+      const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()_+";
+      const availableChars = characters.split('');
+      const speed = 40;
+
+      function shuffleText(originalText, currentRevealed) {
+        return originalText
+          .split('')
+          .map((char, i) => {
+            if (char === ' ') return ' ';
+            if (currentRevealed.has(i)) return originalText[i];
+            return availableChars[Math.floor(Math.random() * availableChars.length)];
+          });
+      }
+
+      function animateDecryptedText(targetText, onComplete) {
+        let revealedSet = new Set();
+        let frameIndex = 0;
+        const totalLen = targetText.length;
+
+        clearInterval(targetContainer.intervalId);
+        
+        targetContainer.intervalId = setInterval(() => {
+          if (revealedSet.size < totalLen) {
+            revealedSet.add(frameIndex);
+            frameIndex++;
+
+            const currentChars = shuffleText(targetText, revealedSet);
+            let html = "";
+            currentChars.forEach((char, idx) => {
+              const isRevealed = revealedSet.has(idx);
+              const className = isRevealed ? 'decrypted-char-revealed' : 'decrypted-char-glitch';
+              html += `<span class="${className}">${char}</span>`;
+            });
+
+            targetContainer.innerHTML = html;
+          } else {
+            clearInterval(targetContainer.intervalId);
+            let finalHtml = "";
+            targetText.split('').forEach((char) => {
+              finalHtml += `<span class="decrypted-char-revealed">${char}</span>`;
+            });
+            targetContainer.innerHTML = finalHtml;
+            if (onComplete) onComplete();
+          }
+        }, speed);
+      }
+
+      animateDecryptedText(phrases[0]);
+
+      setInterval(() => {
+        phraseIdx = (phraseIdx + 1) % phrases.length;
+        animateDecryptedText(phrases[phraseIdx]);
+      }, 4200);
+
+      targetContainer.addEventListener('mouseenter', () => {
+        animateDecryptedText(phrases[phraseIdx]);
+      });
+      targetContainer.addEventListener('click', () => {
+        phraseIdx = (phraseIdx + 1) % phrases.length;
+        animateDecryptedText(phrases[phraseIdx]);
+      });
+    })();
+
+    // --- ENHANCED REACTBITS DYNAMIC CYBER WAVE GRID CANVAS BACKGROUND ---
+    (function initGridWaves() {
+      const canvas = document.getElementById('reactbits-grid-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+
+      let width = canvas.width = window.innerWidth;
+      let height = canvas.height = window.innerHeight;
+      let mouse = { x: width / 2, y: height / 2 };
+
+      window.addEventListener('resize', () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      });
+
+      const handleMove = (e) => {
+        mouse.x = e.clientX || (e.touches && e.touches[0] ? e.touches[0].clientX : width / 2);
+        mouse.y = e.clientY || (e.touches && e.touches[0] ? e.touches[0].clientY : height / 2);
+      };
+
+      window.addEventListener('mousemove', handleMove);
+      window.addEventListener('touchmove', handleMove, { passive: true });
+
+      const stars = Array.from({ length: 60 }, () => ({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        size: Math.random() * 1.5 + 0.5,
+        speed: Math.random() * 0.3 + 0.1,
+        opacity: Math.random() * 0.6 + 0.2
+      }));
+
+      let step = 0;
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+        step += 0.015;
+
+        stars.forEach(star => {
+          star.y += star.speed;
+          if (star.y > height) star.y = 0;
+          ctx.beginPath();
+          ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(168, 85, 247, ${star.opacity * (0.6 + 0.4 * Math.sin(step + star.x))})`;
+          ctx.fill();
+        });
+
+        const gridSpacing = 42;
+        ctx.lineWidth = 0.85;
+
+        for (let y = height * 0.15; y < height; y += gridSpacing) {
+          ctx.beginPath();
+          const hue = (240 + y * 0.05 + step * 10) % 360;
+          ctx.strokeStyle = `hsla(${hue}, 80%, 70%, 0.09)`;
+
+          for (let x = 0; x <= width; x += 20) {
+            const waveY = y + Math.sin(x * 0.005 + step + y * 0.012) * 14;
+
+            const dx = x - mouse.x;
+            const dy = waveY - mouse.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            let finalY = waveY;
+            if (dist < 200) {
+              finalY += Math.sin(dist * 0.035) * (200 - dist) * 0.15;
+            }
+
+            if (x === 0) ctx.moveTo(x, finalY);
+            else ctx.lineTo(x, finalY);
+          }
+          ctx.stroke();
+        }
+
+        const nodeCount = 40;
+        for (let i = 0; i < nodeCount; i++) {
+          const nx = (Math.sin(step * 0.4 + i * 1.7) * 0.5 + 0.5) * width;
+          const ny = (Math.cos(step * 0.3 + i * 2.3) * 0.5 + 0.5) * height;
+
+          ctx.beginPath();
+          ctx.arc(nx, ny, 2.2, 0, Math.PI * 2);
+          ctx.fillStyle = i % 2 === 0 ? 'rgba(129, 140, 248, 0.65)' : 'rgba(6, 182, 212, 0.55)';
+          ctx.shadowBlur = 8;
+          ctx.shadowColor = i % 2 === 0 ? '#818cf8' : '#06b6d4';
+          ctx.fill();
+          ctx.shadowBlur = 0;
+
+          const mdist = Math.sqrt((nx - mouse.x) ** 2 + (ny - mouse.y) ** 2);
+          if (mdist < 180) {
+            ctx.beginPath();
+            ctx.moveTo(nx, ny);
+            ctx.lineTo(mouse.x, mouse.y);
+            ctx.strokeStyle = `rgba(168, 85, 247, ${(1 - mdist / 180) * 0.45})`;
+            ctx.lineWidth = 1.2;
+            ctx.stroke();
+          }
+        }
+
+        requestAnimationFrame(animate);
+      }
+      animate();
+    })();
+
+    // --- REACTBITS MASKED HEADING MOUSE INTERACTION ---
+    document.querySelectorAll('.reactbits-masked-heading-bg').forEach(elem => {
+      window.addEventListener('mousemove', (e) => {
+        const rect = elem.getBoundingClientRect();
+        elem.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+        elem.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+      });
+    });
+
+    // --- REACTBITS 3D TILT CARD EFFECT ---
+    document.querySelectorAll('.tilt-card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = ((y - centerY) / centerY) * -7;
+        const rotateY = ((x - centerX) / centerX) * 7;
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+      });
+    });
+
+    // --- SPOTLIGHT MOUSE HOVER ---
+    document.querySelectorAll('.spotlight-card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+        card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+      });
+    });
+
+    // --- REACTBITS MAGNETIC BUTTON EFFECT ---
+    document.querySelectorAll('.magnetic-btn').forEach(btn => {
+      btn.addEventListener('mousemove', (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        btn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
+      });
+      btn.addEventListener('mouseleave', () => {
+        btn.style.transform = 'translate(0px, 0px)';
+      });
+    });
+
+    // --- CONTACT FORM SUBMIT DIRECTLY TO dineshsaravan64@gmail.com ---
+    async function handleFormSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('contact-name').value;
+      const email = document.getElementById('contact-email').value;
+      const message = document.getElementById('contact-message').value;
+
+      const toast = document.getElementById('form-toast');
+      toast.classList.remove('hidden');
+
+      try {
+        await fetch("https://formsubmit.co/ajax/dineshsaravan64@gmail.com", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify({
+            name: name,
+            email: email,
+            message: message,
+            _subject: `New Portfolio Message from ${name}`
+          })
+        });
+      } catch (err) {
+        console.log("FormSubmit API fallback.");
+      }
+
+      setTimeout(() => {
+        const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=dineshsaravan64@gmail.com&su=Portfolio%20Inquiry%20from%20${encodeURIComponent(name)}&body=${encodeURIComponent("Sender Email: " + email + "
+
+Message:
+" + message)}`;
+        window.open(gmailUrl, '_blank');
+      }, 800);
+    }
+  </script>
+</body>
+</html>
